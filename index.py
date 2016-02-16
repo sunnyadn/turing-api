@@ -31,6 +31,9 @@ class QqHandler(tornado.web.RequestHandler):
         body = json.loads(response.body)
         print response.body
 
+    def get(self):
+        self.write("Welcome")
+
 if __name__ == "__main__":
     app = tornado.web.Application([
         (r"/qq", QqHandler),
