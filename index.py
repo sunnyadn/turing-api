@@ -40,6 +40,6 @@ if __name__ == "__main__":
         # (r"/console", ConsoleHandler),
     ], debug=True)
     http_server = tornado.httpserver.HTTPServer(app)
-    http_server.listen(os.environ["PORT"])
+    http_server.listen(23333)
     tornado.ioloop.IOLoop.instance().start()
     print "Server Started"
