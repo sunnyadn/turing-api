@@ -1,6 +1,5 @@
 import tornado.web
 import tornado.httpclient
-import tornado.options
 
 import urllib
 import json
@@ -31,11 +30,10 @@ class QqHandler(tornado.web.RequestHandler):
         print response.body
 
 if __name__ == "__main__":
-    tornado.options.parse_command_line()
     app = tornado.web.Application([
         (r"/qq", QqHandler),
         # (r"/console", ConsoleHandler),
     ], debug=True)
     http_server = tornado.httpserver.HTTPServer(app)
-    http_server.listen(options.port)
+    http_server.listen(os.environ["PORT"])
     tornado.ioloop.IOLoop.instance().start()
